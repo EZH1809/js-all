@@ -58,3 +58,12 @@ console.log(getElementWidth("200px", "0px", "0px")); // 200
 // console.log(getElementWidth("60px", "12px", "8.5px")); // 101
 // console.log(getElementWidth("200px", "0px", "0px")); // 200
 
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, 'один');
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, 'два');
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
